@@ -1,14 +1,7 @@
-import { router } from "expo-router";
 import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import "../global.css";
+import Navigation from "./components/Navigation";
 
 export default function AboutPage() {
   const skills = [
@@ -113,34 +106,7 @@ export default function AboutPage() {
         </View>
       </ScrollView>
 
-      {/* Bottom Navigation */}
-      <View className="px-6 py-4 border-t border-gray-200 bg-white/80 backdrop-blur-sm">
-        <View className="flex-row justify-around">
-          <TouchableOpacity
-            onPress={() => router.push("/")}
-            className="items-center opacity-60"
-          >
-            <Text className="mb-1 text-2xl">🏠</Text>
-            <Text className="text-xs font-medium text-gray-600">Home</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => router.push("/about")}
-            className="items-center opacity-100"
-          >
-            <Text className="mb-1 text-2xl">👤</Text>
-            <Text className="text-xs font-medium text-blue-600">About</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => router.push("/contact")}
-            className="items-center opacity-60"
-          >
-            <Text className="mb-1 text-2xl">📞</Text>
-            <Text className="text-xs font-medium text-gray-600">Contact</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <Navigation currentPage="about" />
     </SafeAreaView>
   );
 }

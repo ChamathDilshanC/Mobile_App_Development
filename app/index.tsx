@@ -10,6 +10,8 @@ import {
   View,
 } from "react-native";
 import "../global.css";
+import Hello from "./components/Hello";
+import Navigation from "./components/Navigation";
 
 const { width, height } = Dimensions.get("window");
 
@@ -46,14 +48,9 @@ export default function HomePage() {
         {/* Hero Section */}
         <View className="px-6 pt-8">
           <View className="p-8 mb-8 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl">
-            <View className="items-center">
-              <View className="items-center justify-center w-24 h-24 mb-6 rounded-full bg-white/20">
-                <Text className="text-4xl">♥️</Text>
-              </View>
-              <Text className="mb-2 text-3xl font-bold text-center text-black">
-                Chamath Dilshan
-              </Text>
-              <Text className="mb-4 text-lg text-center text-black/90">
+            <View className="items-center mt-5">
+              <Hello />
+              <Text className="gap-4 mt-4 mb-4 text-lg text-center text-black/90">
                 Full-Stack Developer & UI/UX Designer
               </Text>
               <Text className="leading-relaxed text-center text-black/80">
@@ -125,34 +122,7 @@ export default function HomePage() {
         </View>
       </ScrollView>
 
-      {/* Bottom Navigation */}
-      <View className="px-6 py-4 border-t border-gray-200 bg-white/80 backdrop-blur-sm">
-        <View className="flex-row justify-around">
-          <TouchableOpacity
-            onPress={() => router.push("/")}
-            className="items-center opacity-100"
-          >
-            <Text className="mb-1 text-2xl">🏠</Text>
-            <Text className="text-xs font-medium text-blue-600">Home</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => router.push("/about")}
-            className="items-center opacity-60"
-          >
-            <Text className="mb-1 text-2xl">👤</Text>
-            <Text className="text-xs font-medium text-gray-600">About</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => router.push("/contact")}
-            className="items-center opacity-60"
-          >
-            <Text className="mb-1 text-2xl">📞</Text>
-            <Text className="text-xs font-medium text-gray-600">Contact</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <Navigation currentPage="home" />
     </SafeAreaView>
   );
 }
